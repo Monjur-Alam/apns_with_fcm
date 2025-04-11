@@ -4,24 +4,24 @@ This guide walks you through integrating **Apple Push Notification service (APNs
 
 ---
 
-[📲 APNs with FCM Integration Guide for iOS Push Notifications]()
+[📲 APNs with FCM Integration Guide for iOS Push Notifications](#apns-with-fcm-integration-guide-for-ios-push-notifications)
 
-[🔧 Step-by-Step Guide]()
+[🔧 Step-by-Step Guide](#-step-by-step-guide)
   1. [Apple Developer: Generate APNs Authentication Key .p8](#-1-apple-developer-generate-apns-authentication-key-p8)
-  2. [Firebase Console Setup]()
-  3. [iOS Project Setup (Xcode)]()
-  4. [Testing Push Notifications]()
-  5. [Role or Permissions Issue]()
+  2. [Firebase Console Setup](#-2-firebase-console-setup)
+  3. [iOS Project Setup (Xcode)](#-3-ios-project-setup-xcode)
+  4. [Testing Push Notifications](#-4-testing-push-notifications)
+  5. [Role or Permissions Issue](#-5-role-or-permissions-issue)
 
-[What is Pushy?]()
+[What is Pushy?](#what-is-pushy)
 
-[🔧 Prerequisites]()
+[🔧 Prerequisites](#-prerequisites)
 
-[🛠️ Steps to Configure APNs with Pushy on iOS]()
-  1. [🔹 1. Upload .p8 Key to Pushy Dashboard]()
-  2. [🔹 2. Integrate Pushy iOS SDK]()
-  3. [🔹 3. Register Device for Push Notifications]()
-  4. [🔹 4. Handle Incoming Notifications]()
+[🛠️ Steps to Configure APNs with Pushy on iOS](#%EF%B8%8F-steps-to-configure-apns-with-pushy-on-ios)
+  1. [🔹 1. Upload .p8 Key to Pushy Dashboard](#-1-upload-p8-key-to-pushy-dashboard)
+  2. [🔹 2. Integrate Pushy iOS SDK](#-2-integrate-pushy-ios-sdk)
+  3. [🔹 3. Register Device for Push Notifications](#-3-register-device-for-push-notifications)
+  4. [🔹 4. Handle Incoming Notifications](#-4-handle-incoming-notifications)
  
 
 ---
