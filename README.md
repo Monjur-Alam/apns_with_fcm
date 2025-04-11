@@ -1,8 +1,32 @@
-# 📲 APNs with FCM Integration Guide for iOS Push Notifications
+# 📲 APNs with FCM & Pushy Integration Guide for iOS Push Notifications
 
 This guide walks you through integrating **Apple Push Notification service (APNs)** with **Firebase Cloud Messaging (FCM)** for iOS apps.
 
 ---
+
+[📲 APNs with FCM Integration Guide for iOS Push Notifications]()
+
+[🔧 Step-by-Step Guide]()
+  1. [Apple Developer: Generate APNs Authentication Key .p8](#-1-apple-developer-generate-apns-authentication-key-p8)
+  2. [Firebase Console Setup]()
+  3. [iOS Project Setup (Xcode)]()
+  4. [Testing Push Notifications]()
+  5. [Role or Permissions Issue]()
+
+[What is Pushy?]()
+
+[🔧 Prerequisites]()
+
+[🛠️ Steps to Configure APNs with Pushy on iOS]()
+  1. [🔹 1. Upload .p8 Key to Pushy Dashboard]()
+  2. [🔹 2. Integrate Pushy iOS SDK]()
+  3. [🔹 3. Register Device for Push Notifications]()
+  4. [🔹 4. Handle Incoming Notifications]()
+ 
+
+---
+
+## APNs with FCM Integration Guide for iOS Push Notifications
 
 ## 🔧 Step-by-Step Guide
 
@@ -72,7 +96,7 @@ UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound
     }
 }
 ```
-### ✅ 4. Testing Push Notification
+### ✅ 4. Testing Push Notifications
 - Go to Firebase Console > Cloud Messaging > Send test message
 - Use your device's FCM token for testing
 
@@ -101,3 +125,137 @@ Even if you have "developer access", it might not be enough to upload the APNs k
 - 📁 The file **does not expire**, but if deleted, you must generate a **new one** from Apple Developer portal.
 - 🧾 Make sure your **Apple Developer account is active and valid**.
 - 🔑 Your **Firebase user must have Editor or Owner permissions** to upload the `.p8` key.
+
+---
+
+## What is Pushy?
+
+Pushy is an alternative push notification gateway primarily used for Android devices. However, Pushy now supports iOS via APNs using .p8 authentication keys.
+
+---
+
+### 🔧 Prerequisites
+1. Apple Developer Account
+
+2. Your iOS app with Pushy SDK installed
+
+3. APNs Auth Key (.p8 file)
+
+4. Pushy backend SDK (Node.js, Java, PHP, etc.)
+
+---
+
+### 🛠️ Steps to Configure APNs with Pushy on iOS
+### 🔹 1. Upload .p8 Key to Pushy Dashboard
+1. Go to Pushy Dashboard
+
+2. Select your project
+
+3. Go to "iOS Configuration"
+
+4. Upload:
+
+- .p8 file
+
+- Key ID
+
+- Team ID
+
+- Bundle ID
+
+You can find this info in your Apple Developer Account under Certificates, IDs & Profiles > Keys
+
+---
+
+### 🔹 2. Integrate Pushy iOS SDK
+Use CocoaPods or Swift Package Manager:
+
+With CocoaPods:
+
+```swift
+pod 'Pushy'
+```
+
+Then: 
+
+```swift
+import Pushy
+```
+
+---
+
+### 🔹 3. Register Device for Push Notifications
+
+```swift
+import UIKit
+import Pushy
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Register the device with Pushy
+        Pushy.register { (deviceToken, error) in
+            if let error = error {
+                print("Pushy registration failed: \(error)")
+                return
+            }
+
+            // Print device token or send it to your server
+            print("Pushy device token: \(deviceToken)")
+        }
+
+        return true
+    }
+}
+```
+
+---
+
+### 🔹 4. Handle Incoming Notifications
+
+```swift
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+    Pushy.handlePush(userInfo)
+}
+```
+
+---
+
+### 🚀 Sending Push from Server
+Use Pushy backend SDK (e.g., Node.js):
+
+```javascript
+const Pushy = require('pushy');
+
+// Your Pushy Secret API Key
+const pushyAPIKey = 'your-secret-api-key';
+
+const data = {
+  message: 'Hello iOS via Pushy + APNs!'
+};
+
+const to = 'DEVICE_TOKEN_HERE';
+
+Pushy.sendPushNotification(data, to, {}, pushyAPIKey, function (err, id) {
+  if (err) {
+    return console.log('Push send failed:', err);
+  }
+
+  console.log('Push sent successfully! ID:', id);
+});
+```
+
+---
+
+### ✅ Notes:
+- Make sure your APNs key is active in Apple Dev Console.
+
+- Device token must be stored securely on your backend.
+
+- You can test push with Pushy's test console too.
+
+---
+
+
+
