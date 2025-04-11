@@ -18,10 +18,10 @@ This guide walks you through integrating **Apple Push Notification service (APNs
 [🔧 Prerequisites](#-prerequisites)
 
 [🛠️ Steps to Configure APNs with Pushy on iOS](#%EF%B8%8F-steps-to-configure-apns-with-pushy-on-ios)
-  1. [🔹 1. Upload .p8 Key to Pushy Dashboard](#-1-upload-p8-key-to-pushy-dashboard)
-  2. [🔹 2. Integrate Pushy iOS SDK](#-2-integrate-pushy-ios-sdk)
-  3. [🔹 3. Register Device for Push Notifications](#-3-register-device-for-push-notifications)
-  4. [🔹 4. Handle Incoming Notifications](#-4-handle-incoming-notifications)
+  1. [Upload .p8 Key to Pushy Dashboard](#-1-upload-p8-key-to-pushy-dashboard)
+  2. [Integrate Pushy iOS SDK](#-2-integrate-pushy-ios-sdk)
+  3. [Register Device for Push Notifications](#-3-register-device-for-push-notifications)
+  4. [Handle Incoming Notifications](#-4-handle-incoming-notifications)
  
 
 ---
